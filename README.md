@@ -1,6 +1,6 @@
 This is a project that I am using to practice/implement design principles 
 
-- Trying to practice using SOLID design priciples in a context that I enjoy, Magic The Gathering
+- Practice using SOLID design priciples in a context that I enjoy, Magic The Gathering
 - I thought it would be useful to design the app using Hexagonal arrchitecture and FSM since the game has a series of phases
 
 Designing (Taking a step back)
@@ -18,6 +18,23 @@ Player
   - The Player has a **battlefield**
   - The Player has a **graveyard**
   - The Player has an **exile zone**
+
+Phases 
+  - Beginning Phase
+    - The Untap step "At the beginning of turn" or "At the beginning of Untap"
+      - Triggered abilities will happen, and go on the stack at the beggining of upkeep
+      - Phasing happens (phases back in)
+      - Player whose turn it is untaps all permanents they control
+    - The Upkeep step "At the beginning of upkeep"
+      - Upkeep and Untap triggers go on the stack
+      - The current player gets priority
+      - Mana pools empty
+    - The Draw step "At the beginning of draw step"
+      - The current player draws a card (does not go on the stack)
+      - Triggered abilities happen
+      - The current player gets priority
+      - Mana pools empty
+  
 
 Battlefield
   - The Battlefield contains a List of (cards/spells/permanents) (played/cast/resolved?) by a player
